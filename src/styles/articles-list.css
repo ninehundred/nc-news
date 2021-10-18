@@ -1,0 +1,10 @@
+.articles_list_container {
+  background-color: rgb(145, 29, 29);
+  margin: 5vw;
+  opacity: 0.5;
+}
+
+.articles_list {
+  background-color: white;
+  opacity: 0.1;
+}

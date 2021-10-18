@@ -1,0 +1,35 @@
+.navbar {
+  background-color: #424B54;
+  height: 6vh;
+  display: flex;
+}
+
+
+.navbar_header {
+  color: #FFFFFF;
+  margin: 10px;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 120%;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar_route {
+  color: #FFFFFF;
+  margin: 1vw;
+  vertical-align: middle;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 80%;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.navbar_route:hover {
+  opacity: 1;
+}
+.navbar_route:focus {
+  opacity: 1;
+}
