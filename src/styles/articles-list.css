@@ -1,6 +1,5 @@
 .articles_list_container {
-  margin: 5vw;
-  opacity: 0.5;
+  
 }
 
 .articles_header {
@@ -9,13 +8,17 @@
   height: 8vh;
   position: fixed;
   z-index: 1;
-  text-align: left;
+  margin-top: 2.4vh;
   
 }
 
-.articls_list {
+.articles_header h4 {
+  padding-top: 1vh;
+  text-align: center;
+}
 
-  position: absolute;
+
+.articles_list {
   overflow: scroll;
 }
 
@@ -28,21 +31,28 @@
   list-style-type: none;
   vertical-align: middle;
   
+  
 }
 
-.listed_article {
+.article_card {
   margin: 10px;
   padding: 3px;
-  background-color: white;
+  background-color: #acc4c9;
+  opacity: 0.8;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.listed_article h4 {
+.article_card h4 {
   padding: 0;
   margin: 0;
   font-size: 100%;
+  opacity: 1;
+  z-index: 5;
 }
 
-.listed_article p {
+.article_card p {
   margin: 0;
   padding: 0;
   font-size: 80%;
@@ -52,5 +62,35 @@
   text-align: center;
   margin-top: 40vh;
   font-weight: bold;
+}
+
+@media only screen and (min-width: 480px) {
+  .article_card {
+    background-color: #acc4c9;
+    width: 40vw;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .articles_header h4 {
+    text-align: left;
+    padding-left: 1vw;
+  }
+
+  .article_ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .article_card .read_more_button {
+    justify-self: flex-end;
+    
+  }
+  
+
 }
 

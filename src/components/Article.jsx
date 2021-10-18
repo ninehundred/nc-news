@@ -1,32 +1,36 @@
-import { NavLink } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { getArticleById } from "./utils/api";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-const Article = ({ articles }) => {
+import '../styles/article.css';
+
+export const Article = ({ isLoading, setIsLoading }) => {
+
+  const [article, setArticle] = useState({});
+  const { article_id } = useParams();
+
+  useEffect(() => {
+    getArticleById(article_id)
+    .then(article => {
+      setArticle(article)
+      setIsLoading(false);
+    })
+  },[setIsLoading, article_id])
+
+  console.log(article)
+
+  if (isLoading) return <section className='loading'>LOADING...</section>
   return (
-    <ul className='article_ul'>
-      {articles.map(article_item => {
-        return (
-          <li key={article_item.article_id} className='listed_article'>
-            <h4>
-              {article_item.title}
-            </h4>
-            <p className='item_topic'>
-              topic: {article_item.topic}
-            </p>
-            <p className ='item_author'>
-              author: {article_item.author}
-            </p>
-            <p className='item_comments'>
-              comments: {article_item.comment_count}
-            </p>
-            <p className='item_votes'>
-              votes: {article_item.votes}
-            </p>
-            <button type='button' className='read_more_button'  >read more...</button>
-          </li>
-        )
-      })}
-    </ul>
+    <section className="article_single">
+      <h1>{article.title}</h1>
+      <h4>author: {article.author}</h4>
+      <h4>created at: {article.created_at}</h4>
+      <section>topic: {article.topic}</section>
+      <section>{article.body}</section>
+      <Link to={`/`}>
+        <button type='button' className='read_more_button'>home</button>
+      </Link>
+    </section>
   )
 }
-
-export default Article;
