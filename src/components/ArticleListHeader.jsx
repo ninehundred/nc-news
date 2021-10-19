@@ -12,7 +12,7 @@ export const ArticleListHeader = ({ setTopic }) => {
     getAllTopics()
     .then(topics => {
       const defaultAll = {slug: '/', description: 'N/A - default all topics'}
-      setTopics([...topics, defaultAll])
+      setTopics([defaultAll,...topics ])
       setIsLoading(false);
     })
   }, [setTopics, setIsLoading])
@@ -28,7 +28,6 @@ export const ArticleListHeader = ({ setTopic }) => {
         event.preventDefault();
         setTopic(event.target.value);
       }}>
-        <option value="none" selected disabled hidden>Select Topic</option>
         {topics.map(topic => {
           const key = topic.slug;
           const value = topic.slug;
