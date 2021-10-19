@@ -3,15 +3,17 @@ import { getArticleById } from "./utils/api";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Comments } from "./Comments";
+import { useLoading } from "../hooks/useLoading";
 import '../styles/comments-list.css'
 import '../styles/article.css'
 
 
 
-export const Article = ({ isLoading, setIsLoading }) => {
+export const Article = () => {
 
   const [article, setArticle] = useState({});
   const { article_id } = useParams();
+  const {isLoading, setIsLoading} = useLoading();
 
   useEffect(() => {
     getArticleById(article_id)

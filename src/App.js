@@ -16,7 +16,7 @@ function App() {
       <Nav/>
       <Switch>
         <Route exact path='/'>
-          <ArticleList isLoading={isLoading} setIsLoading={setIsLoading}/>
+          <ArticleList/>
         </Route>
 
         <Route exact path='/articles/:article_id'>
