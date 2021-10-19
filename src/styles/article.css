@@ -5,3 +5,20 @@
   margin: 20px;
   padding: 10px;
 }
+
+.article_single h4{
+  margin: 2px;
+  padding: 2px;
+  font-size: 50%;
+  
+}
+
+.comments_list {
+  position: relative;
+  margin: 5vw;
+}
+
+.home_button {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}

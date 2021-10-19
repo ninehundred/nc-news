@@ -1,0 +1,28 @@
+
+
+.comments_ul {
+  background-color: grey;
+  list-style-type: none; 
+  padding: 0;
+  margin: 0; 
+}
+
+.comment_item {
+  background-color: white;
+}
+
+.comment_body {
+  font-size: 70%;
+}
+
+.comment_author {
+  font-size: 70%;
+}
+
+.comment_date {
+  font-size: 70%;
+}
+
+.comment_votes {
+  font-size: 70%;
+}

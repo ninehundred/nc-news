@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-const ArticleItem = ({ articles }) => {
+const ArticleListItem = ({ articles }) => {
+
   return (
     <ul className='article_ul'>
       {articles.map(article_item => {
@@ -32,4 +33,4 @@ const ArticleItem = ({ articles }) => {
   )
 }
 
-export default ArticleItem;
+export default ArticleListItem;
