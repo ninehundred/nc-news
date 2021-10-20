@@ -18,13 +18,16 @@ const Login = () => {
   //console.log(formInput)
 
   const LoginSubmit = (event) => {
-    //console.log(formInput.username)
     event.preventDefault();
     getUser( formInput.username )
-    .then(data => {
-      console.log(data)
-      if (data.user.username === formInput.username) {
+    .then(userData => {
+      console.log(userData)
+      // if username exists in the DB
+      if (userData.user.username === formInput.username) {
+        // setuser...
         setUser(formInput.username)
+        // use session storage (at least) to minimise data leakage
+        sessionStorage.setItem('username', JSON.stringify(userData.user.username))
       }
     })
   }

@@ -23,15 +23,18 @@ export const ReqLoginLoginPage = ({ children }) => {
 
 export const ReqLoginNavLoginBtn = ({ children }) => {
   const { isLoggedIn, setUser } = useContext(UserContext);
-
+  //set user to null to log out
   const logUserOut = (event) => {
     setUser(null);
+    sessionStorage.removeItem('username')
   }
 
+  // check if logged in, if so only display login text
   if (isLoggedIn) {
     return (
       <Link className='navbar_route' to="/" onClick={(event) => logUserOut(event)}>logout</Link>
     )
+  // else return the original login form
   } else {
     return children
   }

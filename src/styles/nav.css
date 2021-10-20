@@ -38,3 +38,7 @@
 .navbar_route:focus {
   opacity: 1;
 }
+
+#navbar_button {
+  justify-self: flex-end;
+}

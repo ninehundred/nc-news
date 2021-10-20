@@ -9,10 +9,8 @@ export const Nav = () => {
       <Link className="navbar_header" to="/">Cnews</Link>
       <Link className='navbar_route' to="/">home</Link> 
       <ReqLoginNavLoginBtn>
-        <Link className='navbar_route' to="/login">login</Link>
+        <Link id='login_button' className='navbar_route' to="/login">login</Link>
       </ReqLoginNavLoginBtn>
-      
-
     </nav>
   );
 };
