@@ -1,7 +1,6 @@
 
 
 .comments_ul {
-  background-color: grey;
   list-style-type: none; 
   padding: 0;
   margin: 0; 
@@ -9,6 +8,8 @@
 
 .comment_item {
   background-color: white;
+  padding: 5px;
+  margin: 5px;
 }
 
 .comment_body {
@@ -16,11 +17,11 @@
 }
 
 .comment_author {
-  font-size: 70%;
+  font-size: 50%;
 }
 
 .comment_date {
-  font-size: 70%;
+  font-size: 50%;
 }
 
 .comment_votes {

@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { getArticleById } from "./utils/api";
+import { getArticleById, patchArticleVotes } from "./utils/api";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Comments } from "./Comments";
 import { useLoading } from "../hooks/useLoading";
 import { useVote } from "../hooks/useVote";
-import axios from  'axios'
 import '../styles/comments-list.css'
 import '../styles/article.css'
 
@@ -16,30 +15,39 @@ export const Article = () => {
   const [article, setArticle] = useState({});
   const { article_id } = useParams();
   const {isLoading, setIsLoading} = useLoading();
-  const { votes, setVotes } = useVote();
+  const { currentVotes, setCurrentVotes } = useVote();
 
   useEffect(() => {
     getArticleById(article_id)
     .then(article => {
+      // set article object with info for rendering
       setArticle(article)
-      setVotes(article.votes)
+      // set vote counter object to article votes for dynamic rendering
+      setCurrentVotes(article.votes)
       setIsLoading(false);
     })
-  },[setIsLoading, setVotes, article_id])
-
+  },[setIsLoading, article_id, setCurrentVotes])
 
   const handleVote = (event) => {
-    const voteVal = event.target.value;
-    if (voteVal === '>') setVotes(votes + 1);
-    if (voteVal === '<') setVotes(votes -1);
-    axios.patch(`https://be-nc-news-testing.herokuapp.com/api/articles/${article_id}`, { inc_votes: votes })
-    .then(response => {
-      console.log(response)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-    // this is where we now send back to db.....
+    // get up or down vote from event value 
+    const upOrDown = event.target.value;
+    // make object to store votes for sending to db
+    let incVotes = {inc_votes: article.votes}
+    // if vote is upvote
+    if (upOrDown === '>') {
+      // increase the votes in the db (db handles increment since patch)
+      incVotes = { inc_votes: 1 }
+      // increase the votes in the state (which when refreshed will read back to db anyway)
+      setCurrentVotes(currentVotes + 1)
+    }
+    // if vote is downvote
+    else if (upOrDown === '<') {
+      // decrease votes in db
+      incVotes = { inc_votes: -1 }
+      // decrease votes in state (most current displayed)
+      setCurrentVotes(currentVotes - 1)
+    }
+    patchArticleVotes(article_id, incVotes)
   }
 
   
@@ -76,7 +84,7 @@ export const Article = () => {
               >⬇️</button>
             </span>
           </span>
-          <span>votes: {votes}</span>
+          <span>votes: {currentVotes}</span>
         </section>
 
       
