@@ -1,6 +1,5 @@
 import './App.css';
-import { useState } from "react";
-import {Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import { Nav } from './components/Nav';
 import { ArticleList } from './components/ArticleList';
 import Login from './components/Login';
@@ -8,9 +7,6 @@ import { Article } from './components/Article';
 
 
 function App() {
-
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <div className="App">
       <Nav/>
@@ -20,7 +16,7 @@ function App() {
         </Route>
 
         <Route exact path='/articles/:article_id'>
-          <Article isLoading={isLoading} setIsLoading={setIsLoading}/>
+          <Article/>
         </Route>
 
         <Route exact path='/login'>

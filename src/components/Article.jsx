@@ -7,6 +7,7 @@ import { useLoading } from "../hooks/useLoading";
 import { useVote } from "../hooks/useVote";
 import '../styles/comments-list.css'
 import '../styles/article.css'
+import { ReqLoginArticleVote } from "../wrappers/RequiresLogin";
 
 
 
@@ -64,8 +65,9 @@ export const Article = () => {
         <section>{article.body}</section>
       </section>
 
-      <section className='vote_section'>
-        
+      <ReqLoginArticleVote>
+        <section className='vote_section'>
+          
           <span>
             <span>
               <button 
@@ -86,6 +88,8 @@ export const Article = () => {
           </span>
           <span>votes: {currentVotes}</span>
         </section>
+      </ReqLoginArticleVote>
+      
 
       
       <Link to={`/`}>

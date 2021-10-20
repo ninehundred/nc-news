@@ -22,3 +22,10 @@
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
+
+.vote_section {
+  margin-top: 10px;
+}
+.vote_section button {
+  margin-right: 5px;
+}

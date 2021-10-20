@@ -39,18 +39,22 @@ export const getAllTopics = () => {
 }
 
 export const patchArticleVotes = (article_id, incVotes) => {
-  return listApi.patch(`articles/${article_id}`, incVotes)
+  return listApi.patch(`/articles/${article_id}`, incVotes)
   .catch(err => {
     return err
   })
 }
 
-// axios.patch(`https://be-nc-news-testing.herokuapp.com/api/articles/${article_id}`,  incVotes)
-//     .then(response => {
-//       console.log(response)
-//     })
-//     .catch(err => {
-//       console.log(err)
-//     })
+export const getUser = (username) => {
+  return listApi.get(`/users/${username}`)
+  .then( ( { data } ) => {
+    //console.log(data)
+    return data
+  })
+  .catch(err => {
+    // if user not found return not found
+    // else return something went wrong
+  })
+}
 
 

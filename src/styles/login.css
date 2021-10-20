@@ -1,0 +1,34 @@
+.login_section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 15vh;
+  margin-bottom: auto;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+
+.login_form .username_input {
+  align-self: center;
+  text-align: center;
+  width: 50vw;
+  padding: 3px;
+  margin: 10px;
+}
+
+.login_form .login_submit {
+  align-self: center;
+  width: 15vw;
+}
+
+.login_text {
+  text-align: center;
+  margin-top: 30vh;
+  font-weight: bold;
+  font-size: 150%;
+}
