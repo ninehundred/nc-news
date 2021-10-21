@@ -19,7 +19,6 @@ export const ArticleListHeader = ({ topicQuery, setTopicQuery }) => {
 
   const handleChange = (event) => {
     const name = event.target.name;
-    console.log('the name is....\n', name)
     const value = event.target.value;
     setTopicQuery(values => ({...values, [name]: value}))
     //console.log('about to set the selected option to\n', value)
@@ -43,6 +42,28 @@ export const ArticleListHeader = ({ topicQuery, setTopicQuery }) => {
         })}
       </select>
 
+      <select name='sort_by'
+              id='article_sort_menu'
+              className='topic_select_menu'
+              onChange={(event) => {handleChange(event)}}
+              >
+        <option value="none" defaultValue hidden >sort by</option>
+        <option key='created01' value='created_at'>date created</option>
+        <option key='commentCount01' value='comment_count'>comment count</option>
+        <option key='votes01' value='votes'>votes</option>
+
+      </select>
+
+      <select name='order'
+              id='article_order_by'
+              className='topic_select_menu'
+              onChange={(event) => {handleChange(event)}}
+              >
+        <option value="none" defaultValue hidden >order</option>
+        <option key='asc1' value='asc'>ascending</option>
+        <option key='desc1' value='desc'>descending</option>
+
+      </select>
       
     </section>
   )

@@ -9,8 +9,7 @@ import { useLoading } from "../hooks/useLoading";
 export const ArticleList = () => {
 
   const [articles, setArticles] = useState([]);
-  const [topicQuery, setTopicQuery] = useState({start: '/articles', 
-                                                topic: '', 
+  const [topicQuery, setTopicQuery] = useState({topic: '', 
                                                 sort_by: '', 
                                                 order: ''})
   const {isLoading, setIsLoading} = useLoading()

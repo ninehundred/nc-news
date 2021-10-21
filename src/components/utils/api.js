@@ -6,12 +6,26 @@ import axios from  'axios'
 const listApi = axios.create({baseURL:`https://be-nc-news-testing.herokuapp.com/api`})
 
 export const getArticles = (topicQuery) => {
+  console.log(topicQuery)
   
-  let queryString = topicQuery.start
-  if (topicQuery.topic !== '') queryString += `?topic=${topicQuery.topic}`
-  if (topicQuery.sort_by !== '') queryString += `&sort_by=${topicQuery.sort_by}`
-  if (topicQuery.order !== '') queryString += `&order=${topicQuery.order}`
+  let queryString = '/articles'
+  const inputValues = Object.values(topicQuery).filter(x => x !== '')
+  //console.log(inputValues)
+  const outArray = ['?'];
+  if (inputValues.length >= 1) {
+    for (const [key, value] of Object.entries(topicQuery)) {
+      if (value) {
+        outArray.push(`${key}=${value}`)
+        outArray.push('&')
+      }
+      //console.log(key, value)
+      
+    }
+    outArray.pop();
+    queryString += outArray.join('')
+  }
   console.log(queryString)
+  
   
   return listApi.get(`${queryString}`)
   .then(({data}) => {
