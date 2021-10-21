@@ -1,4 +1,5 @@
 import axios from  'axios'
+import { AxiosResponse, AxiosError } from 'axios'
 
 // TODO - sort out the back end to accept queries.
 // const listApi = axios.create({baseURL:`https://do-news-server.herokuapp.com/api`})
@@ -18,8 +19,6 @@ export const getArticles = (topicQuery) => {
         outArray.push(`${key}=${value}`)
         outArray.push('&')
       }
-      //console.log(key, value)
-      
     }
     outArray.pop();
     queryString += outArray.join('')
@@ -48,7 +47,6 @@ export const getCommentsByArticleId = (article_id) => {
 }
 
 export const getAllTopics = () => {
-  ///api/articles?topic=coding
   return listApi.get(`/topics`)
   .then(({ data }) => {
     return data.topics
@@ -69,21 +67,32 @@ export const getUser = (username) => {
     return data
   })
   .catch(err => {
-    // if user not found return not found
-    // else return something went wrong
+    // TODO - redirect to my error page?
   })
 }
 
-
 export const postArticleComment = (article_id, comment) => {
-  console.log('input article id and comment\n', article_id, comment)
+  //console.log('input article id and comment\n', article_id, comment)
   return listApi.post(`/articles/${String(article_id)}/comments`, comment)
   ///api
   .then( ( {data} ) => {
-    console.dir(data)
+    //console.dir(data)
   })
   .catch(err => {
-    console.dir(err)
+    //console.dir(err)
+    //TODO - should i to my error page here?
+  })
+}
+
+export const handleError = (pathname) => {
+  return listApi.get(`${pathname}`)
+  .then((response: AxiosResponse) => {
+    console.log('nothing to see here')
+  })
+  .catch((reason: AxiosError) => {
+    const response = reason.response;
+    const message = reason.message;
+    return({response, message})
   })
 }
 

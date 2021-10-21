@@ -2,7 +2,6 @@ import '../styles/login.css';
 import { UserContext } from '../wrappers/UserContext';
 import { useState, useContext } from 'react';
 import { postArticleComment } from './utils/api';
-//import { getUser } from './utils/api'; << -- might need for user info
 
 const PostComment = ({articleId, comments, setComments}) => {
   const { isLoggedIn } = useContext(UserContext)
@@ -24,7 +23,6 @@ const PostComment = ({articleId, comments, setComments}) => {
     } else {
       const commentError = document.getElementById('error_message')
       if (!commentError) {
-        console.log('not logged in!')
         const errorNode = document.createElement("p"); 
         errorNode.innerHTML = 'please log in to post!'
         errorNode.classList.add('error_message')
@@ -34,7 +32,6 @@ const PostComment = ({articleId, comments, setComments}) => {
       } 
     }
   }
-  //console.log(comment)
 
 
   const postComment = (event) => {
@@ -53,8 +50,7 @@ const PostComment = ({articleId, comments, setComments}) => {
       setComments([...comments, optimisticComment])
       // after comment set go ahead and post to comments db.
       const postComment = {...comment}
-
-      postComment.username = JSON.parse(currentUser);
+      postComment.username = currentUser;
       postArticleComment(articleId, postComment)
     } 
   }
