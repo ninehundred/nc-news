@@ -67,7 +67,6 @@ export const Article = () => {
 
       <ReqLoginArticleVote>
         <section className='vote_section'>
-          
           <span>
             <span>
               <button 
