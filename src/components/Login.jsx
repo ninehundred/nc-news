@@ -8,14 +8,11 @@ const Login = () => {
   const { setUser } = useContext(UserContext)
   const [formInput, setFormInput] = useState({username: ''});
 
-  //TODO - check against users from db by sending rather than requesting.
-
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setFormInput(values => ({...values, [name]: value }))
   }
-  //console.log(formInput)
 
   const LoginSubmit = (event) => {
     event.preventDefault();
@@ -28,8 +25,9 @@ const Login = () => {
           // setuser...
           setUser(formInput.username)
           // use session storage (at least) to minimise data leakage
-          sessionStorage.setItem('username', JSON.stringify(userData.user.username))
-          // remove any error tags associated with 
+          sessionStorage.setItem('username', userData.user.username)
+          
+          // remove any error tags
           const liElements = document.querySelectorAll("p[id^='error_message']");
           if (liElements.length > 0) {
             liElements[0].remove();
@@ -66,7 +64,6 @@ const Login = () => {
       </form>
     </section>
     </ReqLoginLoginPage>
-    
   )
 }
 

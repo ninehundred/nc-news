@@ -7,23 +7,37 @@
 }
 
 .comment_item {
-  background-color: white;
+  border-bottom: 2px solid grey;
   padding: 5px;
   margin: 5px;
 }
 
 .comment_body {
   font-size: 70%;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .comment_author {
-  font-size: 50%;
+  font-size: 60%;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .comment_date {
-  font-size: 50%;
+  font-size: 60%;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .comment_votes {
   font-size: 70%;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+input:disabled {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhYWGMYAEYB8RmROaABADeOQ8CXl/xfgAAAABJRU5ErkJggg==) 
+  repeat;
+  color: black;
 }

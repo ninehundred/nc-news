@@ -58,3 +58,16 @@ export const getUser = (username) => {
 }
 
 
+export const postArticleComment = (article_id, comment) => {
+  console.log('input article id and comment\n', article_id, comment)
+  return listApi.post(`/articles/${String(article_id)}/comments`, comment)
+  ///api
+  .then( ( {data} ) => {
+    console.dir(data)
+  })
+  .catch(err => {
+    console.dir(err)
+  })
+}
+
+
