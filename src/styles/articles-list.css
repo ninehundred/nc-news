@@ -1,17 +1,20 @@
 .articles_header {
   background-color: #93A8AC;
   width: 100%;
-  height: 8vh;
+  height: 10vh;
+  min-height: 50px;
   position: fixed;
   z-index: 1;
-  margin-top: 2.4vh;
+  padding-top: 5vh;
   display: flex;
   flex-direction: row;
-  justify-content: center;
 }
 
 .articles_header h4 {
   padding-top: 1vh;
+  font-size: 2.5vh;
+  margin-block-start: 2.8%;
+  min-height: 10px;
   
 }
 
@@ -19,17 +22,21 @@
   height: 20px;
   margin-top: 4vh;
   margin-left: 10px;
+  margin-block-start: 2.8%;
+  align-self: center;
 }
 
 
 .articles_list {
+  
   overflow: scroll;
+  height:95vh;
+  text-align: justify;
 }
 
 .article_ul {
   position: relative;
-  top: 10vh;
-  margin-top: 0px;
+  margin-block-start: 15vh;
   padding-left: 0;
   margin-left: 0;
   list-style-type: none;

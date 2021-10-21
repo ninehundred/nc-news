@@ -1,5 +1,6 @@
 body {
   background-color: #93A8AC;
+  min-width: 330px;
 }
 
 .error_message{

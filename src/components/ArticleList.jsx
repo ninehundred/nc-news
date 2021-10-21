@@ -9,23 +9,26 @@ import { useLoading } from "../hooks/useLoading";
 export const ArticleList = () => {
 
   const [articles, setArticles] = useState([]);
-  const [topic, setTopic] =useState('/')
+  const [topicQuery, setTopicQuery] = useState({start: '/articles', 
+                                                topic: '', 
+                                                sort_by: '', 
+                                                order: ''})
   const {isLoading, setIsLoading} = useLoading()
 
   useEffect(() => {
     setIsLoading(true)
-    getArticles(topic)
+    getArticles(topicQuery)
     .then(articles => {
       setArticles(articles)
       setIsLoading(false);
     })
-  },[setIsLoading, topic])
+  },[setIsLoading, topicQuery])
 
   if (isLoading) return <section className='loading'>LOADING...</section>
   return (
     <section className="articles_list_container">
 
-      <ArticleListHeader articles={articles} setTopic={setTopic}/>
+      <ArticleListHeader articles={articles} topicQuery={topicQuery} setTopicQuery={setTopicQuery}/>
       
       <section className="articles_list">
         <Article articles={articles} isLoading={isLoading}/>

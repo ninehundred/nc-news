@@ -3,13 +3,16 @@ import axios from  'axios'
 // TODO - sort out the back end to accept queries.
 // const listApi = axios.create({baseURL:`https://do-news-server.herokuapp.com/api`})
 
-
 const listApi = axios.create({baseURL:`https://be-nc-news-testing.herokuapp.com/api`})
 
-export const getArticles = (topic) => {
-  let queryString = `articles`
-  if (topic !== '/') queryString += `?topic=${topic}`
-  // if theres a sort by also add '&sortby=asc/desc'
+export const getArticles = (topicQuery) => {
+  
+  let queryString = topicQuery.start
+  if (topicQuery.topic !== '') queryString += `?topic=${topicQuery.topic}`
+  if (topicQuery.sort_by !== '') queryString += `&sort_by=${topicQuery.sort_by}`
+  if (topicQuery.order !== '') queryString += `&order=${topicQuery.order}`
+  console.log(queryString)
+  
   return listApi.get(`${queryString}`)
   .then(({data}) => {
     return data.articles;

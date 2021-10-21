@@ -1,12 +1,14 @@
 .navbar {
   background-color: #424B54;
   height: 6vh;
+  min-height: 30px;
   width: 100%;
   top: 0;
   display: flex;
   flex-direction: row;
   position: fixed;
   z-index: 2;
+  align-content: center;
 }
 
 
@@ -15,8 +17,8 @@
   margin: 10px;
   vertical-align: middle;
   margin-top: auto;
-  margin-bottom: auto;
-  font-size: 120%;
+  padding-bottom: 5px;
+  font-size: 2vh;
   font-weight: bold;
   text-decoration: none;
 }
@@ -27,7 +29,8 @@
   vertical-align: middle;
   margin-top: auto;
   margin-bottom: auto;
-  font-size: 80%;
+  font-size: 1.8vh;
+  min-height: 10px;
   text-decoration: none;
   opacity: 0.6;
   transition: 0.3s;
