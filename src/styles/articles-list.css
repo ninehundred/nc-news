@@ -1,29 +1,24 @@
 .articles_header {
   background-color: #EDEDF2;
   width: 100%;
-  height: 10vh;
   min-height: 50px;
   position: fixed;
   z-index: 1;
-  padding-top: 5vh;
+  padding-top: 25px;
   display: flex;
   flex-direction: column;
 }
 
 .articles_header h4 {
-  font-size: 2.5vh;
-  margin-block-start: 2.8%;
-  min-height: 10px;
   text-align: center;
-  align-self: center;
-  padding-top: 20px;
+  margin-bottom: 3px;
 }
 
 .topic_select_menu {
-  margin-top: 4vh;
   margin-left: 10px;
-  margin-block-start: 2.8%;
-  padding:0;
+  height: 20px;
+  margin-bottom: 3px;
+  align-self: center;
 }
 
 
@@ -41,6 +36,7 @@
   list-style-type: none;
   vertical-align: middle;
   max-width: 80%;
+  margin-top: 150px;
 }
 
 .article_card {
@@ -77,12 +73,11 @@
 .article_card .read_more_button {
   background: none;
   border: none;
-  margin: 0;
+  margin: 5px;
   padding: 0;
   opacity: 0.6;
   transition: 0.2s;
   color: #16171a;
-  float:right;
   font-family: 'Raleway';
   font-weight: bolder;
 }
@@ -117,6 +112,7 @@
 
   .articles_header h4 {
     text-align: left;
+    margin-bottom: 20px;
   }
 
   .article_ul {
@@ -124,6 +120,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    margin-top:95px;
   }
 
   .topic_select_menu {
