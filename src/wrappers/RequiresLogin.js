@@ -32,7 +32,7 @@ export const ReqLoginNavLoginBtn = ({ children }) => {
   // check if logged in, if so only display login text
   if (isLoggedIn) {
     return (
-      <Link className='navbar_route' to="/" onClick={(event) => logUserOut(event)}>logout</Link>
+      <Link className='navbar_route login_btn' to="/" onClick={(event) => logUserOut(event)}>logout</Link>
     )
   // else return the original login form
   } else {

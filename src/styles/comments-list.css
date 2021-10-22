@@ -13,27 +13,36 @@
 }
 
 .comment_body {
-  font-size: 70%;
+  font-size: 95%;
   margin-top: 5px;
   margin-bottom: 0;
 }
 
 .comment_author {
-  font-size: 60%;
+  font-size: 70%;
   margin-top: 5px;
   margin-bottom: 0;
+  font-weight: bold;
+  color: #314045;
+  font-family: 'Raleway';
 }
 
 .comment_date {
-  font-size: 60%;
+  font-size: 70%;
   margin-top: 5px;
   margin-bottom: 0;
+  font-weight: bold;
+  color: #314045;
+  font-family: 'Raleway';
 }
 
 .comment_votes {
   font-size: 70%;
   margin-top: 5px;
   margin-bottom: 0;
+  font-weight: bold;
+  color: #314045;
+  font-family: 'Raleway';
 }
 
 input:disabled {

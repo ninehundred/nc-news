@@ -62,7 +62,7 @@ export const Article = () => {
         <h4>author: {article.author}</h4>
         <h4>created at: {article.created_at}</h4>
         <h4>topic: {article.topic}</h4>
-        <section>{article.body}</section>
+        <section className='article_body'>{article.body}</section>
       </section>
 
       <ReqLoginArticleVote>
@@ -85,7 +85,7 @@ export const Article = () => {
               >⬇️</button>
             </span>
           </span>
-          <span>votes: {currentVotes}</span>
+          <span className='votes_text' >votes: {currentVotes}</span>
         </section>
       </ReqLoginArticleVote>
       

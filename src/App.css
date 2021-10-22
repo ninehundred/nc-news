@@ -1,6 +1,9 @@
 body {
-  background-color: #93A8AC;
+  background-color: #EDEDF2;
   min-width: 330px;
+  color: #27292E;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Serif Pro', serif;
 }
 
 .error_message{
@@ -10,7 +13,7 @@ body {
 }
 
 .error_image {
-  width: 80vw;
+  width: 50vh;
   margin-left: auto;
   margin-right: auto;
   display: block;

@@ -16,14 +16,26 @@
 .login_form .username_input {
   align-self: center;
   text-align: center;
-  width: 50vw;
+  width: 12rem;
+  max-width: 400px;
   padding: 3px;
   margin: 10px;
 }
 
 .login_form .login_submit {
   align-self: center;
-  width: 15vw;
+  width: 5rem;
+  border:none;
+  border-color: none;
+  opacity: 0.7;
+  font-family: 'Raleway';
+  font-weight: bolder;
+}
+.login_form .login_submit:hover {
+  opacity: 1;
+}
+.login_form .login_submit:focus {
+  opacity: 1;
 }
 
 .login_text {

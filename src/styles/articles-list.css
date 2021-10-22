@@ -1,5 +1,5 @@
 .articles_header {
-  background-color: #93A8AC;
+  background-color: #EDEDF2;
   width: 100%;
   height: 10vh;
   min-height: 50px;
@@ -7,64 +7,90 @@
   z-index: 1;
   padding-top: 5vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .articles_header h4 {
-  padding-top: 1vh;
   font-size: 2.5vh;
   margin-block-start: 2.8%;
   min-height: 10px;
-  
+  text-align: center;
+  align-self: center;
+  padding-top: 20px;
 }
 
 .topic_select_menu {
-  height: 20px;
   margin-top: 4vh;
   margin-left: 10px;
   margin-block-start: 2.8%;
-  align-self: center;
+  padding:0;
 }
 
 
 .articles_list {
-  
   overflow: scroll;
   height:95vh;
-  text-align: justify;
 }
 
 .article_ul {
   position: relative;
   margin-block-start: 15vh;
   padding-left: 0;
-  margin-left: 0;
+  margin-left: auto;
+  margin-right: auto;
   list-style-type: none;
   vertical-align: middle;
+  max-width: 80%;
 }
 
 .article_card {
   margin: 10px;
   padding: 3px;
-  background-color: #acc4c9;
+  background-image: linear-gradient(#314045, #697C7D);
   opacity: 0.8;
-  max-width: 300px;
+  max-width: 180px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 2px;
 }
 
 .article_card h4 {
-  padding: 0;
+  padding: 5px;
   margin: 0;
   font-size: 100%;
+  font-family: 'Raleway';
   opacity: 1;
   z-index: 5;
+  color: #D3DADE;
+  font-weight: bolder;
 }
 
 .article_card p {
   margin: 0;
-  padding: 0;
+  padding-left: 5px;
+  padding-right: 5px;
   font-size: 80%;
+  color: black;
+  font-weight: bold;
+}
+
+.article_card .read_more_button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0.6;
+  transition: 0.2s;
+  color: #16171a;
+  float:right;
+  font-family: 'Raleway';
+  font-weight: bolder;
+}
+.article_card .read_more_button:hover {
+  opacity: 1;
+}
+.article_card .read_more_button:focus {
+  opacity: 1;
 }
 
 .loading {
@@ -73,9 +99,10 @@
   font-weight: bold;
 }
 
+
+
 @media only screen and (min-width: 480px) {
   .article_card {
-    background-color: #acc4c9;
     width: 40vw;
     margin: 10px;
     display: flex;
@@ -84,9 +111,12 @@
   }
 
   .articles_header{
+    flex-direction: row;
     padding-left: 3vw;
-    justify-content: flex-start;
+  }
 
+  .articles_header h4 {
+    text-align: left;
   }
 
   .article_ul {
@@ -94,10 +124,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-  }
-
-  .article_card .read_more_button {
-    justify-self: flex-end;
   }
 
   .topic_select_menu {

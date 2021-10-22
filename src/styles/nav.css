@@ -1,39 +1,47 @@
 .navbar {
-  background-color: #424B54;
+  background-color: #314045;
   height: 6vh;
   min-height: 30px;
   width: 100%;
   top: 0;
-  display: flex;
-  flex-direction: row;
   position: fixed;
   z-index: 2;
-  align-content: center;
+  padding-left: 1vw;
+  padding-top: 1vh
 }
 
 
 .navbar_header {
   color: #FFFFFF;
   margin: 10px;
-  vertical-align: middle;
-  margin-top: auto;
-  padding-bottom: 5px;
-  font-size: 2vh;
+  font-size: 3.5vh;
   font-weight: bold;
   text-decoration: none;
+  padding-top: 10px;
 }
 
 .navbar_route {
   color: #FFFFFF;
   margin: 1vw;
-  vertical-align: middle;
-  margin-top: auto;
-  margin-bottom: auto;
-  font-size: 1.8vh;
+  font-size: 2.5vh;
   min-height: 10px;
   text-decoration: none;
   opacity: 0.6;
   transition: 0.3s;
+  font-family: 'Raleway';
+  font-weight: 650;
+}
+
+.login_btn {
+  color: #FFFFFF;
+  margin-right: 1vw;
+  font-size: 2.5vh;
+  min-height: 10px;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: 0.2s;
+  float:right;
+  padding-right: 2.2vw;
 }
 .navbar_route:hover {
   opacity: 1;
