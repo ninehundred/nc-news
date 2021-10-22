@@ -3,10 +3,13 @@ import { UserContext } from '../wrappers/UserContext';
 import { ReqLoginLoginPage } from '../wrappers/RequiresLogin';
 import { useState, useContext } from 'react';
 import { getUser } from './utils/api';
+import { ErrorMessage } from './ErrorMessage';
+
 
 const Login = () => {
   const { setUser } = useContext(UserContext)
   const [formInput, setFormInput] = useState({username: ''});
+  const [error, setError] = useState(false);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -18,7 +21,6 @@ const Login = () => {
     event.preventDefault();
     getUser( formInput.username )
     .then(userData => {
-      console.log(userData)
       // if username exists in the DB
       if (userData) {
         if (userData.user.username === formInput.username) {
@@ -26,23 +28,16 @@ const Login = () => {
           setUser(formInput.username)
           // use session storage (at least) to minimise data leakage
           sessionStorage.setItem('username', userData.user.username)
-          
           // remove any error tags
-          const liElements = document.querySelectorAll("p[id^='error_message']");
-          if (liElements.length > 0) {
-            liElements[0].remove();
-          }
+          setError(false);
         }
       } else {
-        const errorNode = document.createElement("p"); 
-        errorNode.innerHTML = 'username not found'
-        errorNode.classList.add('error_message')
-        errorNode.setAttribute("id", "username_error_message"); 
-        const userNameInputNode = document.getElementById('username_input')  
-        userNameInputNode.insertAdjacentElement('afterend', errorNode )
+        setError(true)
       } 
     })
   }
+
+  console.log('there is an error', error)
 
   return (
     <ReqLoginLoginPage>
@@ -60,6 +55,7 @@ const Login = () => {
           placeholder='username (just add jessjelly)'
           onChange={handleChange} 
           required/>
+          { error ? <ErrorMessage error={error}/> : null }  
         <input type='submit' className='login_submit' value='Submit'/>
       </form>
     </section>

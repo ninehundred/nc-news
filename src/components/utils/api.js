@@ -11,7 +11,6 @@ export const getArticles = (topicQuery) => {
   
   let queryString = '/articles'
   const inputValues = Object.values(topicQuery).filter(x => x !== '')
-  //console.log(inputValues)
   const outArray = ['?'];
   if (inputValues.length >= 1) {
     for (const [key, value] of Object.entries(topicQuery)) {
@@ -63,7 +62,6 @@ export const patchArticleVotes = (article_id, incVotes) => {
 export const getUser = (username) => {
   return listApi.get(`/users/${username}`)
   .then( ( { data } ) => {
-    //console.log(data)
     return data
   })
   .catch(err => {
@@ -76,7 +74,6 @@ export const postArticleComment = (article_id, comment) => {
   return listApi.post(`/articles/${String(article_id)}/comments`, comment)
   ///api
   .then( ( {data} ) => {
-    //console.dir(data)
   })
   .catch(err => {
     //console.dir(err)

@@ -5,7 +5,6 @@ import { postArticleComment } from './utils/api';
 
 const PostComment = ({articleId, comments, setComments}) => {
   const { isLoggedIn } = useContext(UserContext)
-  // will need to check this against the actual post request object expected
   const [comment, setComment] = useState({body: '', username: ''});
 
   const handleChange = (event) => {

@@ -21,7 +21,6 @@ export const ArticleListHeader = ({ topicQuery, setTopicQuery }) => {
     const name = event.target.name;
     const value = event.target.value;
     setTopicQuery(values => ({...values, [name]: value}))
-    //console.log('about to set the selected option to\n', value)
   }
   
   if (isLoading) return <section className='loading'>LOADING...</section>
