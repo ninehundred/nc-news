@@ -26,11 +26,13 @@
 ### Articles
 - [✅] Serves all articles / top articles
 - [✅] Can vote on articles
-- [ ] Can vote a maximum of once in either direction per page load
+- [✅] Can vote a maximum of once in either direction per page load
 - [✅] Votes are persistent when page is refreshed
 - [✅] Topic pages load only relevant articles (especially when navigating from one topic page to another)
 - [✅] Can sort articles by date created / comment_count / votes
-- **For the last two point above, the drop-down menus disappear as the articles reload, it would be a much nicer UX if the subheading of `this is the news...` and the dropdown menus stayed put when the topic/sort by/order was changed**
+- [✅] **For the last two point above, the drop-down menus disappear as the articles reload, it would be a much nicer UX if the subheading of `this is the news...` and the dropdown menus stayed put when the topic/sort by/order was changed**
+
+
 ### Individual Article / Comments
 - [✅] Individual articles are served with comments
 - [ ] Can vote on comments

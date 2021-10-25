@@ -7,7 +7,6 @@ import { AxiosResponse, AxiosError } from 'axios'
 const listApi = axios.create({baseURL:`https://be-nc-news-testing.herokuapp.com/api`})
 
 export const getArticles = (topicQuery) => {
-  console.log(topicQuery)
   
   let queryString = '/articles'
   const inputValues = Object.values(topicQuery).filter(x => x !== '')
@@ -22,7 +21,6 @@ export const getArticles = (topicQuery) => {
     outArray.pop();
     queryString += outArray.join('')
   }
-  console.log(queryString)
   
   
   return listApi.get(`${queryString}`)

@@ -45,6 +45,7 @@ export const ArticleListHeader = ({ topicQuery, setTopicQuery }) => {
               id='article_sort_menu'
               className='topic_select_menu'
               onChange={(event) => {handleChange(event)}}
+              value={topicQuery.sort_by}
               >
         <option value="none" defaultValue hidden >sort by</option>
         <option key='created01' value='created_at'>date created</option>
@@ -57,6 +58,7 @@ export const ArticleListHeader = ({ topicQuery, setTopicQuery }) => {
               id='article_order_by'
               className='topic_select_menu'
               onChange={(event) => {handleChange(event)}}
+              value={topicQuery.order}
               >
         <option value="none" defaultValue hidden >order</option>
         <option key='asc1' value='asc'>ascending</option>
