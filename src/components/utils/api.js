@@ -50,8 +50,9 @@ export const getAllTopics = () => {
   })
 }
 
-export const patchArticleVotes = (article_id, incVotes) => {
-  return listApi.patch(`/articles/${article_id}`, incVotes)
+export const patchItemVotes = (itemId, itemType, inc_votes) => {
+  const voteItemOrigin = itemType;
+  return listApi.patch(`/${voteItemOrigin}/${itemId}`, inc_votes)
   .catch(err => {
     return err
   })
