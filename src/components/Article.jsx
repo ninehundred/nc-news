@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getArticleById, patchArticleVotes } from "./utils/api";
+import { getArticleById } from "./utils/api";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Comments } from "./Comments";
@@ -8,6 +8,8 @@ import { useVote } from "../hooks/useVote";
 import '../styles/comments-list.css'
 import '../styles/article.css'
 import { ReqLoginArticleVote } from "../wrappers/RequiresLogin";
+import { BtnVote } from "./BtnVote";
+import { useHasVoted } from "../hooks/useHasVoted";
 
 
 
@@ -15,8 +17,10 @@ export const Article = () => {
 
   const [article, setArticle] = useState({});
   const { article_id } = useParams();
-  const {isLoading, setIsLoading} = useLoading();
+  const { isLoading, setIsLoading } = useLoading();
   const { currentVotes, setCurrentVotes } = useVote();
+  const { hasVoted, setHasVoted} = useHasVoted(0)
+  
 
   useEffect(() => {
     getArticleById(article_id)
@@ -28,30 +32,6 @@ export const Article = () => {
       setIsLoading(false);
     })
   },[setIsLoading, article_id, setCurrentVotes])
-
-  const handleVote = (event) => {
-    // get up or down vote from event value 
-    const upOrDown = event.target.value;
-    // make object to store votes for sending to db
-    let incVotes = {inc_votes: article.votes}
-    // if vote is upvote
-    if (upOrDown === '>') {
-      // increase the votes in the db (db handles increment since patch)
-      incVotes = { inc_votes: 1 }
-      // increase the votes in the state (which when refreshed will read back to db anyway)
-      setCurrentVotes(currentVotes + 1)
-    }
-    // if vote is downvote
-    else if (upOrDown === '<') {
-      // decrease votes in db
-      incVotes = { inc_votes: -1 }
-      // decrease votes in state (most current displayed)
-      setCurrentVotes(currentVotes - 1)
-    }
-    patchArticleVotes(article_id, incVotes)
-  }
-
-  
 
   if (isLoading) return <section className='loading'>LOADING...</section>
   return (
@@ -69,27 +49,27 @@ export const Article = () => {
         <section className='vote_section'>
           <span>
             <span>
-              <button 
-                type='button'
-                className='vote_button' 
-                value={'>'} 
-                onClick={(event) => handleVote(event)}
-                >⬆️</button>
+              <BtnVote currentVotes={currentVotes} 
+                       setCurrentVotes={setCurrentVotes} 
+                       articleVotes={article.votes}
+                       buttonValue={1}
+                       hasVoted={hasVoted}
+                       setHasVoted={setHasVoted}
+                       />
             </span>
             <span>
-            <button 
-              type='button'
-              className='vote_button' 
-              value={'<'} 
-              onClick={(event) => handleVote(event)}
-              >⬇️</button>
+            <BtnVote currentVotes={currentVotes} 
+                       setCurrentVotes = {setCurrentVotes} 
+                       articleVotes={article.votes}
+                       buttonValue={-1}
+                       hasVoted={hasVoted}
+                       setHasVoted={setHasVoted}
+                       />
             </span>
           </span>
           <span className='votes_text' >votes: {currentVotes}</span>
         </section>
       </ReqLoginArticleVote>
-      
-
       
       <Link to={`/`}>
         <button type='button' className='home_button'>home</button>
