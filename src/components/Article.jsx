@@ -6,7 +6,6 @@ import { Comments } from "./Comments";
 import { useLoading } from "../hooks/useLoading";
 import '../styles/comments-list.css'
 import '../styles/article.css'
-import { ReqLoginArticleVote } from "../wrappers/RequiresLogin";
 import { VoteSection } from "./VoteSection";
 
 export const Article = () => {
@@ -36,11 +35,7 @@ export const Article = () => {
         <h4>topic: {article.topic}</h4>
         <section className='article_body'>{article.body}</section>
       </section>
-
-      <ReqLoginArticleVote>
-        <VoteSection itemVotes={article.votes} itemId={article.article_id} itemType='articles'/>
-      </ReqLoginArticleVote>
-
+      <VoteSection itemVotes={article.votes} itemId={article.article_id} itemType='articles'/>
       <Link to={`/`}>
         <button type='button' className='home_button'>home</button>
       </Link>

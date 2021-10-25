@@ -3,7 +3,6 @@ import { useHasVoted } from "../hooks/useHasVoted";
 import { useVote } from "../hooks/useVote";
 import { useEffect } from "react";
 
-
 export const VoteSection = ({ itemVotes, itemId, itemType }) => {
 
   const { hasVoted, setHasVoted } = useHasVoted(0)
@@ -13,11 +12,9 @@ export const VoteSection = ({ itemVotes, itemId, itemType }) => {
     setCurrentVotes(itemVotes)
   }, [itemVotes, setCurrentVotes])
 
-  //console.log(itemId, itemType)
   return (
     <section className='vote_section'>
-      <span>
-        <span>
+        <span> 
           <BtnVote currentVotes={currentVotes} 
                     setCurrentVotes={setCurrentVotes} 
                     itemVotes={itemVotes}
@@ -27,8 +24,7 @@ export const VoteSection = ({ itemVotes, itemId, itemType }) => {
                     itemId={itemId}
                     itemType={itemType}
                     />
-        </span>
-        <span>
+        
         <BtnVote currentVotes={currentVotes} 
                     setCurrentVotes = {setCurrentVotes} 
                     itemVotes={itemVotes}
@@ -39,7 +35,6 @@ export const VoteSection = ({ itemVotes, itemId, itemType }) => {
                     itemType={itemType}
                     />
         </span>
-      </span>
       <span className='votes_text' >votes: {currentVotes}</span>
     </section>
   )

@@ -2,7 +2,9 @@ import { useContext } from "react";
 import { UserContext } from "./UserContext";
 import { Link } from "react-router-dom";
 import  { Redirect } from 'react-router-dom'
-export const ReqLoginArticleVote = ({ children }) => {
+
+
+export const ReqLoginVote = ({ children }) => {
   const { isLoggedIn } = useContext(UserContext);
   //return <div>{isLoggedIn && children}</div> <-- Same as below
   return <div>{isLoggedIn ? children : null} </div>;

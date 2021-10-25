@@ -3,7 +3,7 @@ import { getCommentsByArticleId } from "./utils/api";
 import { useLoading } from "../hooks/useLoading";
 import PostComment from './PostComment.jsx'
 import { VoteSection } from "./VoteSection";
-//import { useVote } from "../hooks/useVote";
+import { ReqLoginVote } from "../wrappers/RequiresLogin";
 
 
 export const Comments = ({article_id}) => {
@@ -25,7 +25,6 @@ export const Comments = ({article_id}) => {
     })
   }, [article_id, setIsLoading])
 
-  //console.log(comments)
 
   if (isLoading) return <section className='loading'>LOADING...</section>
   return (
@@ -38,8 +37,10 @@ export const Comments = ({article_id}) => {
               <p className='comment_author'>author: {comment.author}</p>
               <p className='comment_body'>{comment.body}</p>
               <p className='comment_date'>date created: {comment.created_at}</p>
-              <p>{comment.votes}</p>
-              <VoteSection itemVotes={comment.votes} itemId={comment.comment_id} itemType='comments'/> 
+              <ReqLoginVote>
+                <VoteSection itemVotes={comment.votes} itemId={comment.comment_id} itemType='comments'/>
+              </ReqLoginVote>
+               
             </li>
           )
         })}
