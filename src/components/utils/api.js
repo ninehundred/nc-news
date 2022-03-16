@@ -2,9 +2,9 @@ import axios from  'axios'
 import { AxiosResponse, AxiosError } from 'axios'
 
 // TODO - sort out the back end to accept queries.
-// const listApi = axios.create({baseURL:`https://do-news-server.herokuapp.com/api`})
+const listApi = axios.create({baseURL:`https://do-news-server.herokuapp.com/api`})
 
-const listApi = axios.create({baseURL:`https://be-nc-news-testing.herokuapp.com/api`})
+// const listApi = axios.create({baseURL:`https://be-nc-news-testing.herokuapp.com/api`})
 
 export const getArticles = (topicQuery) => {
   
@@ -20,9 +20,11 @@ export const getArticles = (topicQuery) => {
     }
     outArray.pop();
     queryString += outArray.join('')
+
+    //GET https://do-news-server.herokuapp.com/api/articles?sort_by=comment_count&order=asc
   }
   
-  
+  console.log('here is the query sting we just sent:...\n', queryString)
   return listApi.get(`${queryString}`)
   .then(({data}) => {
     return data.articles;
@@ -82,10 +84,10 @@ export const postArticleComment = (article_id, comment) => {
 
 export const handleError = (pathname) => {
   return listApi.get(`${pathname}`)
-  .then((response: AxiosResponse) => {
+  .then((response) => {
     console.log('nothing to see here')
   })
-  .catch((reason: AxiosError) => {
+  .catch((reason) => {
     const response = reason.response;
     const message = reason.message;
     return({response, message})
