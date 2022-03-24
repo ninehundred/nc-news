@@ -52,6 +52,7 @@ export const ArticleListHeader = ({ topicQuery, setTopicQuery }) => {
         <option key='commentCount01' value='comment_count'>comment count</option>
         <option key='title01' value='title'>title</option>
         <option key='votes01' value='votes'>votes</option>
+        <option key='topics01' value='topic'>topic</option>
 
       </select>
 

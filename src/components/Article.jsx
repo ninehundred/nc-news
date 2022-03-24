@@ -24,6 +24,8 @@ export const Article = () => {
     })
   },[setIsLoading, article_id])
 
+  console.log(article)
+
   if (isLoading) return <section className='loading'>LOADING...</section>
   return (
     <section className="article_single">
