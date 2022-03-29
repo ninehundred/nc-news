@@ -49,14 +49,13 @@
 }
 
 .article_card h4 {
-  padding: 5px;
+  padding: 5px 5px 10px 5px;
   margin: 0;
-  font-size: 100%;
+  font-size: 19px;
   font-family: 'Raleway';
   opacity: 1;
   z-index: 5;
   color: #27292E;
-  font-weight: 800;
 }
 
 .article_card p {
@@ -69,22 +68,22 @@
 }
 
 .article_card .read_more_button {
-  background: none;
   border: none;
   margin: 5px;
   padding: 0;
-  opacity: 0.8;
+  opacity: 0.5;
   transition: 0.2s;
   color: black;
   font-family: 'Raleway';
   font-weight: bolder;
   align-self: center;
+  background: none;
 }
 .article_card .read_more_button:hover {
   opacity: 1;
 }
 .article_card .read_more_button:focus {
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .card_footer {
@@ -99,8 +98,6 @@
   font-weight: bold;
 }
 
-
-
 @media only screen and (min-width: 939px) {
   .article_card {
     width: 350px;
@@ -109,7 +106,7 @@
     margin: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     background: white;
     border-bottom: none;
     border-radius: 5px;

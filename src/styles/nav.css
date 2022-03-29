@@ -14,7 +14,7 @@
 .navbar_header {
   color: #FFFFFF;
   margin: 10px;
-  font-size: 3.5vh;
+  font-size: 28px;
   font-weight: bold;
   text-decoration: none;
   padding-top: 10px;
@@ -23,7 +23,7 @@
 .navbar_route {
   color: #FFFFFF;
   margin: 1vw;
-  font-size: 2.5vh;
+  font-size: 23px;
   min-height: 10px;
   text-decoration: none;
   opacity: 0.6;
@@ -34,10 +34,7 @@
 
 .login_btn {
   color: #FFFFFF;
-  margin-right: 1vw;
-  font-size: 2.5vh;
-  min-height: 10px;
-  text-decoration: none;
+  font-size: 23px;
   opacity: 0.6;
   transition: 0.2s;
   float:right;

@@ -1,5 +1,5 @@
 import axios from  'axios'
-import { AxiosResponse, AxiosError } from 'axios'
+//import { AxiosResponse, AxiosError } from 'axios'
 
 // TODO - sort out the back end to accept queries.
 const listApi = axios.create({baseURL:`https://do-news-server.herokuapp.com/api`})

@@ -8,7 +8,7 @@ const ArticleListItem = ({ articles }) => {
         const dateGMT = new Date(article_item.created_at).toLocaleDateString()
         return (
           <li key={article_item.article_id} className='article_card'>
-            <header class='card_header'>
+            <header className='card_header'>
             <h4>
               {article_item.title}
             </h4>
@@ -17,7 +17,7 @@ const ArticleListItem = ({ articles }) => {
             </p>
             </header>
             
-            <section class='card_body'>
+            <section className='card_body'>
               <p className='item_topic'>
                 topic: {article_item.topic}
               </p>
@@ -32,7 +32,7 @@ const ArticleListItem = ({ articles }) => {
               </p>
             </section>
 
-            <footer class='card_footer'>
+            <footer className='card_footer'>
               <Link to={`/articles/${article_item.article_id}`}>
                 <button type='button' className='read_more_button'>read more...</button>
               </Link>
