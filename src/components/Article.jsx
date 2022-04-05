@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { getArticleById } from "./utils/api";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { Comments } from "./Comments";
+import { CommentsList } from "./CommentsList";
 import { useLoading } from "../hooks/useLoading";
 import '../styles/comments-list.css'
 import '../styles/article.css'
 import { VoteSection } from "./VoteSection";
+import { convertToLocal } from "./utils/dateTime";
 
 export const Article = () => {
 
@@ -18,13 +19,13 @@ export const Article = () => {
     getArticleById(article_id)
     .then(article => {
       // set article object with info for rendering
-      setArticle(article)
+      //TODO: would be nice for this to ask for your own local date first...
+      const localDate = convertToLocal(article.created_at, 'en-GB')
+      setArticle({...article, created_at: localDate});
       // set vote counter object to article votes for dynamic rendering
       setIsLoading(false);
     })
   },[setIsLoading, article_id])
-
-  console.log(article)
 
   if (isLoading) return <section className='loading'>LOADING...</section>
   return (
@@ -33,7 +34,8 @@ export const Article = () => {
       <section className="article_text">
         <h1>{article.title}</h1>
         <h4>author: {article.author}</h4>
-        <h4>created at: {article.created_at}</h4>
+        <h4>created: {article.created_at}</h4>
+        
         <h4>topic: {article.topic}</h4>
         <section className='article_body'>{article.body}</section>
       </section>
@@ -48,7 +50,7 @@ export const Article = () => {
       </section>
 
       <section className='comments_list'>
-        <Comments article_id={article_id}/>
+        <CommentsList article_id={article_id}/>
       </section>
     </section>
   )

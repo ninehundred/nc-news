@@ -50,3 +50,8 @@ input:disabled {
   repeat;
   color: black;
 }
+
+.avatar_img {
+  border-radius: 50%;
+  width: 50px;
+}
