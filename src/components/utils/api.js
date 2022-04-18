@@ -62,6 +62,9 @@ export const getAllTopics = () => {
 
 export const patchItemVotes = (itemId, itemType, inc_votes) => {
   const voteItemOrigin = itemType;
+  console.log(`id = ${itemId}, itemType = ${itemType}, inc_votes = ${inc_votes}`)
+  console.log(inc_votes)
+  // https://do-news-server.herokuapp.com/api/
   return listApi.patch(`/${voteItemOrigin}/${itemId}`, inc_votes)
   .catch(err => {
     return err

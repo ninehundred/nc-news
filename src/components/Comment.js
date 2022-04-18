@@ -18,11 +18,13 @@ export const Comment = ({ commentData }) => {
     })
   }, [commentData.author])
 
+
   return (
     <li key={commentData.comment_id} className='comment_item'>
       <section>
         <img className="avatar_img" src={avatarURL} alt="stock"/>
         <p className='comment_author'>{commentData.author}</p>
+        <p>comment id {commentData.comment_id}</p>
       </section>
       <section>
         <p className='comment_body'>{commentData.body}</p>
