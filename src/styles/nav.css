@@ -7,7 +7,9 @@
   position: fixed;
   z-index: 2;
   padding-left: 1vw;
-  padding-top: 1vh
+  padding-top: 1vh;
+  display: flex;
+
 }
 
 
@@ -17,28 +19,29 @@
   font-size: 28px;
   font-weight: bold;
   text-decoration: none;
-  padding-top: 10px;
+  padding-top: 0;
 }
 
 .navbar_route {
   color: #FFFFFF;
-  margin: 1vw;
-  font-size: 23px;
+  /* margin: 1vw; */
+  font-size: 20px;
   min-height: 10px;
   text-decoration: none;
   opacity: 0.6;
   transition: 0.3s;
   font-family: 'Raleway';
   font-weight: 600;
+  margin-top: 16px;
 }
 
 .login_btn {
   color: #FFFFFF;
-  font-size: 23px;
+  font-size: 20px;
   opacity: 0.6;
   transition: 0.2s;
-  float:right;
   padding-right: 2.2vw;
+  margin-left: auto;
 }
 .navbar_route:hover {
   opacity: 1;

@@ -1,12 +1,6 @@
-.articles_header {
-  background-color: #EDEDF2;
-  width: 100%;
-  min-height: 50px;
-  position: fixed;
-  z-index: 1;
-  padding-top: 25px;
-  display: flex;
-  flex-direction: column;
+.articles_header{
+  padding-top: 70px;
+  padding-bottom: 12px ;
 }
 
 .articles_header h4 {
@@ -22,9 +16,16 @@
 }
 
 
+.articles_list_container {
+  margin-bottom: 0;
+  height: 80%;
+}
+
 .articles_list {
-  overflow: scroll;
-  height:95vh;
+  height: 85vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background-color: white;
 }
 
 .article_ul {
@@ -36,7 +37,7 @@
   list-style-type: none;
   vertical-align: middle;
   max-width: 80%;
-  margin-top: 150px;
+  margin-top: 22px;
 }
 
 .article_card {
@@ -112,9 +113,9 @@
     flex-direction: column;
     justify-content: flex-end;
     background: white;
-    border: solid white 5px;
-    border-radius: 10px;
-    padding: 0;
+    border: solid #acb4b6 2px;
+    border-radius: 7px;
+    padding: 1;
   }
 
   .card_body {
@@ -137,12 +138,6 @@
     border-radius: 0px 0px 5px 5px;
   }
 
-  .articles_header{
-    flex-direction: row;
-    padding-left: 3vw;
-    padding-top: 40px;
-  }
-
   .articles_header h4 {
     text-align: left;
     margin-bottom: 20px;
@@ -153,7 +148,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    margin-top:95px;
   }
 
   .article_card .read_more_button {

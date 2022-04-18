@@ -9,10 +9,7 @@ import { getUser } from "./utils/api";
 
 export const Comment = ({ commentData }) => {
 
-  //const { currentVotes, setCurrentVotes } = useVote();
-
   const [avatarURL, setAvatarURL] = useState();
-  // TODO - comments should be sortable by votes, date (asc, desc)
 
   useEffect(() => {
     getUser(commentData.author)
@@ -20,8 +17,6 @@ export const Comment = ({ commentData }) => {
       setAvatarURL(user.user.avatar_url)
     })
   }, [commentData.author])
-  //if (isLoading) return <section className='loading'>LOADING...</section>
-
 
   return (
     <li key={commentData.comment_id} className='comment_item'>

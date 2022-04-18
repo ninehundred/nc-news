@@ -3,6 +3,7 @@ import { getCommentsByArticleId } from "./utils/api";
 import { useLoading } from "../hooks/useLoading";
 import PostComment from './PostComment.jsx'
 import { Comment } from "./Comment";
+import { SortHeader } from "./SortHeader";
 import '../styles/comments-list.css'
 
 
@@ -13,26 +14,28 @@ export const CommentsList = ({article_id}) => {
   const [topicQuery, setTopicQuery] = useState({topic: '', 
                                                 sort_by: '', 
                                                 order: ''})
-  //const { currentVotes, setCurrentVotes } = useVote();
-
-  // TODO - comments should be sortable by votes, date (asc, desc)
+  const [sortedHeadings, setSortedHeadings] = useState([])
 
   useEffect(() => {
     setIsLoading(true);
     getCommentsByArticleId(article_id, topicQuery)
     .then(comments => {
-      
       setComments(comments)
-      //setCurrentVotes(comments.votes)
+      setSortedHeadings(Object.keys(comments[0]).filter(heading => {
+        return !heading.includes('_id') && !heading.includes('body')
+      }).sort())
       setIsLoading(false)
     })
-  }, [article_id, setIsLoading])
-
+  }, [article_id, setIsLoading, topicQuery])
 
   if (isLoading) return <section className='loading'>LOADING...</section>
-
   return (
     <section className='comments_section'>
+      <SortHeader 
+        topicQuery={topicQuery} 
+        setTopicQuery={setTopicQuery} 
+        headerList={sortedHeadings}
+        filters={[]}/>
       <PostComment articleId={article_id} comments={comments} setComments={setComments}/>
       <ul className='comments_ul'>
         {comments.map(comment => {
