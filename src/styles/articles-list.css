@@ -1,6 +1,6 @@
 .articles_header{
   padding-top: 70px;
-  padding-bottom: 12px ;
+  padding-bottom: 12px;
 }
 
 .articles_header h4 {
@@ -9,7 +9,7 @@
 }
 
 .topic_select_menu {
-  margin-left: 10px;
+  margin-right: 10px;
   height: 20px;
   margin-bottom: 3px;
   align-self: center;

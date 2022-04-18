@@ -15,6 +15,7 @@ export const SortHeader = ({ topicQuery, setTopicQuery, headerList, filters }) =
                   className='topic_select_menu'
                   onChange={(event) => {handleChange(event)}}
                   value={topicQuery.topic}
+                  style={{'margin-left': '20px'}}
                   >
           <option value="none" defaultValue hidden >sort by</option>
           {filters.map(filter => {
