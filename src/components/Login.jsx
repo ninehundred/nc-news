@@ -37,8 +37,6 @@ const Login = () => {
     })
   }
 
-  console.log('there is an error', error)
-
   return (
     <ReqLoginLoginPage>
       <section className='login_section'>
@@ -52,7 +50,7 @@ const Login = () => {
           id='username_input'
           className='username_input'
           name='username' 
-          placeholder='username (just add jessjelly)'
+          placeholder='username (just use "tickle122")'
           onChange={handleChange} 
           required/>
           { error ? <ErrorMessage error={error}/> : null }  

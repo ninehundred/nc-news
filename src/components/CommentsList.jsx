@@ -10,14 +10,16 @@ export const CommentsList = ({article_id}) => {
 
   const [comments, setComments] = useState([]);
   const {isLoading, setIsLoading} = useLoading()
+  const [topicQuery, setTopicQuery] = useState({topic: '', 
+                                                sort_by: '', 
+                                                order: ''})
   //const { currentVotes, setCurrentVotes } = useVote();
 
   // TODO - comments should be sortable by votes, date (asc, desc)
-  // NICETOHAVE - add reply button (would mean additional back end work)
 
   useEffect(() => {
     setIsLoading(true);
-    getCommentsByArticleId(article_id)
+    getCommentsByArticleId(article_id, topicQuery)
     .then(comments => {
       
       setComments(comments)
@@ -34,7 +36,6 @@ export const CommentsList = ({article_id}) => {
       <PostComment articleId={article_id} comments={comments} setComments={setComments}/>
       <ul className='comments_ul'>
         {comments.map(comment => {
-          // TODO: get avatar URL
           return <Comment key={comment.comment_id} commentData={comment} />
         })}
       </ul>

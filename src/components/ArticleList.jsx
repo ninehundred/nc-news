@@ -27,7 +27,7 @@ export const ArticleList = () => {
   return (
     <section className="articles_list_container">
 
-      <ArticleListHeader articles={articles} topicQuery={topicQuery} setTopicQuery={setTopicQuery}/>
+      <ArticleListHeader topicQuery={topicQuery} setTopicQuery={setTopicQuery}/>
       
       <section className="articles_list">
         <Article articles={articles} isLoading={isLoading}/>

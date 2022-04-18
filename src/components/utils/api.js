@@ -1,10 +1,7 @@
 import axios from  'axios'
-//import { AxiosResponse, AxiosError } from 'axios'
+import { AxiosResponse, AxiosError } from 'axios'
 
-// TODO - sort out the back end to accept queries.
 const listApi = axios.create({baseURL:`https://do-news-server.herokuapp.com/api`})
-
-// const listApi = axios.create({baseURL:`https://be-nc-news-testing.herokuapp.com/api`})
 
 export const getArticles = (topicQuery) => {
   
@@ -34,8 +31,23 @@ export const getArticleById = (article_id) => {
   })
 }
 
-export const getCommentsByArticleId = (article_id) => {
-  return listApi.get(`/articles/${article_id}/comments`)
+export const getCommentsByArticleId = (article_id, topicQuery) => {
+  //TODO: let this accept queries also. :)
+  let queryString = `/articles/${article_id}/comments`
+  const inputValues = Object.values(topicQuery).filter(x => x !== '')
+  const outArray = ['?'];
+  if (inputValues.length >= 1) {
+    for (const [key, value] of Object.entries(topicQuery)) {
+      if (value) {
+        outArray.push(`${key}=${value}`)
+        outArray.push('&')
+      }
+    }
+    outArray.pop();
+    queryString += outArray.join('')
+  }
+
+  return listApi.get(queryString)
   .then(({ data }) => {
     return data.comments;
   })
@@ -62,17 +74,19 @@ export const getUser = (username) => {
     return data
   })
   .catch(err => {
-    // TODO - give error on page
+    console.log('there has been an error with the user')
   })
 }
 
 export const postArticleComment = (article_id, comment) => {
   return listApi.post(`/articles/${String(article_id)}/comments`, comment)
-  ///api
   .then( ( {data} ) => {
+    //console.log('article posted to db')
   })
   .catch(err => {
-    //TODO - give error on page
+    console.dir(err.response)
+    console.dir(err.response.status)
+    console.dir(err.response.headers)
   })
 }
 

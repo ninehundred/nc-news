@@ -4,22 +4,25 @@ import { VoteSection } from "./VoteSection";
 import { ReqLoginVote } from "../wrappers/RequiresLogin";
 import { convertToLocal } from "./utils/dateTime";
 import '../styles/comments-list.css'
+import { getUser } from "./utils/api";
 
 
 export const Comment = ({ commentData }) => {
 
   //const { currentVotes, setCurrentVotes } = useVote();
 
-  const [avatarURL, setAvatarURL] = useState("https://picsum.photos/200");
-
+  const [avatarURL, setAvatarURL] = useState();
   // TODO - comments should be sortable by votes, date (asc, desc)
-  // NICETOHAVE - add reply button (would mean additional back end work)
 
   useEffect(() => {
-    // get users avatar
-    // set the users avatar
-  }, [])
+    getUser(commentData.author)
+    .then(user => {
+      setAvatarURL(user.user.avatar_url)
+    })
+  }, [commentData.author])
   //if (isLoading) return <section className='loading'>LOADING...</section>
+
+
   return (
     <li key={commentData.comment_id} className='comment_item'>
       <section>

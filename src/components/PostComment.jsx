@@ -32,12 +32,10 @@ const PostComment = ({articleId, comments, setComments}) => {
     }
   }
 
-
   const postComment = (event) => {
     event.preventDefault();
     if (isLoggedIn) {
       const currentUser = sessionStorage.getItem('username');
-      //setComment(values => ({...values, username: currentUser }))
       const currentDateTime = new Date().toISOString();
       const optimisticComment = {
         author: currentUser,
@@ -46,7 +44,7 @@ const PostComment = ({articleId, comments, setComments}) => {
         created_at: currentDateTime,
         votes: 0
       }
-      setComments([...comments, optimisticComment])
+      setComments([optimisticComment, ...comments])
       // after comment set go ahead and post to comments db.
       const postComment = {...comment}
       postComment.username = currentUser;
@@ -62,7 +60,7 @@ const PostComment = ({articleId, comments, setComments}) => {
           id='comment_input'
           className='comment_input'
           name='body' 
-          placeholder='have your say!'
+          placeholder='make a comment!'
           onChange={handleChange} 
           required/>
           <input type='submit' className='comment_submit' value='Post' disabled={!isLoggedIn}/>

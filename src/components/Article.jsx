@@ -44,7 +44,6 @@ export const Article = () => {
         <button type='button' className='home_button'>home</button>
       </Link>
       
-
       <section className='comments_header'>
         comments
       </section>
