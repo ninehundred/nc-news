@@ -6,6 +6,7 @@ import { Nav } from './components/Nav';
 import { ArticleList } from './components/ArticleList';
 import Login from './components/Login';
 import { Article } from './components/Article';
+import { Account } from './components/Account';
 import { NoMatch } from './components/NoMatch';
 
 
@@ -29,6 +30,10 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <ArticleList/>
+        </Route>
+
+        <Route exact path='/account'>
+          <Account/>
         </Route>
 
         <Route exact path='/articles/:article_id'>

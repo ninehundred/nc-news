@@ -22,6 +22,17 @@ export const ReqLoginLoginPage = ({ children }) => {
   }
 };
 
+export const ReqLoginAccountPage = ({ children }) => {
+  const { isLoggedIn } = useContext(UserContext);
+  if (!isLoggedIn) {
+    return (
+      <Redirect to='/'/>
+    )
+  } else {
+    return children
+  }
+};
+
 export const ReqLoginNavLoginBtn = ({ children }) => {
   const { isLoggedIn, setUser } = useContext(UserContext);
   //set user to null to log out
@@ -33,7 +44,10 @@ export const ReqLoginNavLoginBtn = ({ children }) => {
   // check if logged in, if so only display login text
   if (isLoggedIn) {
     return (
+      <>
+      <Link className='navbar_route home_btn' style={{'marginLeft' : '10px'}} to="/account">account</Link>
       <Link className='navbar_route login_btn' to="/" onClick={(event) => logUserOut(event)}>logout</Link>
+      </>
     )
   // else return the original login form
   } else {

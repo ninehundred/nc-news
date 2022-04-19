@@ -15,13 +15,13 @@ export const SortHeader = ({ topicQuery, setTopicQuery, headerList, filters }) =
                   className='topic_select_menu'
                   onChange={(event) => {handleChange(event)}}
                   value={topicQuery.topic}
-                  style={{'margin-left': '20px'}}
+                  style={{'marginLeft': '20px'}}
                   >
-          <option value="none" defaultValue hidden >sort by</option>
+          <option key='all1' value="" defaultValue >all</option>
           {filters.map(filter => {
             return <option key={filter+'1'} value={filter}>{filter.replace(/_/g, ' ')}</option>
-      })}
-      </select> : <></>
+          })}
+          </select> : <></>
       }
 
       <select name='sort_by'
