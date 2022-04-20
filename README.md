@@ -1,7 +1,7 @@
 ## DO News App
-This app was made to talk to a backend server and retrieve news articles, comments and so on.
-You should be able to use this app on both mobile and desktop comfortably. 
-This app allows you to log in (in a simplistic way) as well as vote on articles.
+This app was demonstrate knowledge of a front end portion of full stack development.
+It utilises the api of be-nc-news (ADD LINK) to display items on the front end.
+This app will work on both a desktop and mobile application.
 
 ## Available Scripts
 
@@ -16,11 +16,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 https://do-news.netlify.app/
 
 ### link to deployed back end
-the back end is not quite complete and so the following was used
-https://be-nc-news-testing.herokuapp.com/steve
+https://do-news-server.herokuapp.com/api
 
-the backend i produced missing the full query feature can be found below
-https://do-news-server.herokuapp.com/
+note - both back and front end are ongoing as I develop more features in each to continue learning.
 
 ## minimum node version
 6.14.15
@@ -28,13 +26,14 @@ https://do-news-server.herokuapp.com/
 ## running the project
 ### clone repo using
 - git clone https://github.com/ninehundred/nc-news.git
-### ensure CORS package is installed in back end
--  npm install cors
+### ensure CORS package is installed in back end:
+- (to allow use of resource can be used on this application)
+- npm install cors 
 - git add package.json package-lock.json app.js
 - git commit -m 'allow cross origin resource sharing'
 - git push heroku main
 
-## to run the build on netlify please 
+## to run the build on netlify: 
 - create a netlify account
 - npm run build
 - instal the netlify command line with: npm install netlify-cli -g
@@ -46,14 +45,24 @@ https://do-news-server.herokuapp.com/
 - provide a deploy path: ./build
 - run: netlify deploy --prod to run the production deployment
 
-## colour scheme reference
+## colour scheme reference:
 https://www.design-seeds.com/in-nature/nature-made/color-fog/
 
+## Main features and learning points:
+- React
+- State/ state management
+- Hooks
+- Optimistic Rendering
+- Login authentication
+- CSS
+- HTML
+- Single page applications
+- API use/ calls
+- React Components
+- Fontawesome use in react
+- Wrappers
+- Simple deployment to server
 
-A few useful links here that I'll share with the rest of the cohort as well:
-FreeCodeCamp article: https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/
-List of good examples of README.md files: https://github.com/matiassingers/awesome-readme
-In browser editor to create a readme: https://readme.so/editor
 
 
 
