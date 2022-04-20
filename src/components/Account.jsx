@@ -1,25 +1,33 @@
-import '../styles/login.css';
+import '../styles/account.css';
 import { ReqLoginAccountPage } from '../wrappers/RequiresLogin';
 import { useState, useContext, useEffect } from 'react';
 import { getUser } from './utils/api';
 import { useLoading } from "../hooks/useLoading";
-import { ErrorMessage } from './ErrorMessage';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { InputCell } from './InputCell';
 
 
 export const Account = () => {
   
-  const [userInfo, setUserInfo] = useState();
-  const [formInput, setFormInput] = useState({username: ''});
+  let [userInfo, setUserInfo] = useState({});
+  const [edit, setEdit] = useState(false)
   const [error, setError] = useState(false);
 
 
   const {isLoading, setIsLoading} = useLoading()
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setFormInput(values => ({...values, [name]: value }))
+  // const handleChange = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setFormInput(values => ({...values, [name]: value }))
+  // }
+  const editMode = (event) => {
+    setEdit(!edit)
+    //bunch of checks
+    // then we need to edit our back end
+    // then we need to send this off to the back end
+    // not sure if want to optimistically render....
+    // probs want to make sure username is available first with a check?
   }
 
   useEffect( () => {
@@ -32,45 +40,27 @@ export const Account = () => {
     })
   }, [setIsLoading])
 
-  const updateUserInfo = (event) => {
-    event.preventDefault();
-    // will need patch request to update user info
-  }
-
-
-  // basically want an uneditable form but if they click the
-  // pencil they can edit it.
-
   return (
     <ReqLoginAccountPage>
         <section className='account_section'>
         <h1> 
           Account
         </h1>
-        <form id='user_info_form' className='user_info_form' onSubmit={updateUserInfo} >
-        <input 
-          type='text' 
-          id='username_input'
-          className='username_input'
-          name='username' 
-          placeholder={userInfo ? userInfo.username : ''}
-          onChange={handleChange} 
-          required/>
-        <input 
-          type='text' 
-          id='avatar_url_input'
-          className='username_input'
-          name='avatar_url' 
-          placeholder={userInfo ? userInfo.avatar_url : ''}
-          onChange={handleChange} 
-          required/>
-
-
-
-
-          { error ? <ErrorMessage error={error}/> : null }  
-        <input type='submit' className='login_submit' value='Submit'/>
-      </form>
+        {/* this thing needs to take in the state username and editMode ... */}
+          <img src={userInfo ? userInfo.avatar_url : ''} alt="user avatar"></img>
+        <p>
+          <InputCell 
+            userInfo={userInfo} 
+            edit={edit} 
+            setUserInfo={setUserInfo}/>
+          {/* should have used a button with an icon here... */}
+          <button onClick={event => editMode()}>
+            { !edit ? 
+              <FontAwesomeIcon icon="fa-solid fa-lock" /> : 
+              <FontAwesomeIcon icon="fa-solid fa-lock-open" />}
+          </button>
+          
+        </p>
       </section>
     </ReqLoginAccountPage>
       

@@ -1,0 +1,30 @@
+.account_section {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.account_section img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.icon {
+  margin-left: 10px;
+}
+
+.svg-inline--fa {
+  margin-left: 10px;
+  color: #6b6b6b;
+}
+
+.svg-inline--fa :hover {
+  color: red;
+}
+
+button {
+  border: none;
+}
