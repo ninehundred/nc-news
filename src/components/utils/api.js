@@ -69,13 +69,21 @@ export const patchItemVotes = (itemId, itemType, body) => {
   })
 }
 
-export const getUser = (username) => {
-  return listApi.get(`/users/${username}`)
+export const getUser = (formInput) => {
+  // make sure theres a form input
+  return listApi.get(`/users/${formInput.username}`)
   .then( ( { data } ) => {
     return data
   })
   .catch(err => {
     console.log('there has been an error with the user')
+  })
+}
+
+export const postUser = (formInput) => {  
+  return listApi.post(`/users`, formInput)
+  .then(({ data }) => {
+    return data
   })
 }
 

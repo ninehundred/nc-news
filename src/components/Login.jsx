@@ -8,7 +8,7 @@ import { ErrorMessage } from './ErrorMessage';
 
 const Login = () => {
   const { setUser } = useContext(UserContext)
-  const [formInput, setFormInput] = useState({username: ''});
+  const [formInput, setFormInput] = useState({});
   const [error, setError] = useState(false);
 
   const handleChange = (event) => {
@@ -19,7 +19,7 @@ const Login = () => {
 
   const LoginSubmit = (event) => {
     event.preventDefault();
-    getUser( formInput.username )
+    getUser( formInput )
     .then(userData => {
       // if username exists in the DB
       if (userData) {

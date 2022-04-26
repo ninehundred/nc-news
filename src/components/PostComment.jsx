@@ -11,7 +11,6 @@ const PostComment = ({articleId, comments, setComments}) => {
     if (isLoggedIn) {
       const body = event.target.name;
       const value = event.target.value;
-      //const currentUser = sessionStorage.getItem('username');
 
       setComment({[body]: value })
       const liElements = document.querySelectorAll("p[id^='error_message']");

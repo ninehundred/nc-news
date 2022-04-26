@@ -8,10 +8,10 @@ import Login from './components/Login';
 import { Article } from './components/Article';
 import { Account } from './components/Account';
 import { NoMatch } from './components/NoMatch';
-import ReactDOM from 'react-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faLock, faLockOpen} from '@fortawesome/free-solid-svg-icons'
+import SignUp from './components/SignUp';
 
 library.add(fab, faLock, faLockOpen)
 
@@ -42,6 +42,10 @@ function App() {
 
         <Route exact path='/articles/:article_id'>
           <Article/>
+        </Route>
+
+        <Route exact path='/signUp'>
+          <SignUp/>
         </Route>
 
         <Route exact path='/login'>

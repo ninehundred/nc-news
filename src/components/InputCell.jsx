@@ -1,9 +1,8 @@
-export const InputCell = ({userInfo, edit, setUserInfo}) => {
+export const InputCell = ({userInfo, edit}) => {
 
   const handleChange = (event) => {
     const body = event.target.name;
     const value = event.target.value;
-
   }
 
   if (!edit) {

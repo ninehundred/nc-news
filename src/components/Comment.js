@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-//import PostComment from './PostComment.jsx'
 import { VoteSection } from "./VoteSection";
 import { ReqLoginVote } from "../wrappers/RequiresLogin";
 import { convertToLocal } from "./utils/dateTime";
@@ -8,16 +7,13 @@ import { getUser } from "./utils/api";
 
 
 export const Comment = ({ commentData }) => {
-
   const [avatarURL, setAvatarURL] = useState();
-
   useEffect(() => {
-    getUser(commentData.author)
+    getUser({username: commentData.author})
     .then(user => {
       setAvatarURL(user.user.avatar_url)
     })
   }, [commentData.author])
-
 
   return (
     <li key={commentData.comment_id} className='comment_item'>
@@ -37,5 +33,4 @@ export const Comment = ({ commentData }) => {
       </ReqLoginVote>
     </li>
   )
-
 }

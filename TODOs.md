@@ -35,8 +35,8 @@
 
 ### Individual Article / Comments
 - [✅] Individual articles are served with comments
-- [ ] Can vote on comments
-- [ ] Can vote a maximum of once in either direction per page load
+- [✅] Can vote on comments
+- [✅] Can vote a maximum of once in either direction per page load
 - [✅] Votes are persistent when page is refreshed
 - [✅] Can post new comments, which are persistent - **But, the text remains in the input box after posting)**
 ## Error Handling
@@ -54,7 +54,7 @@
 - [✅] Use object destructuring where possible
 - [✅] Tidy? If not: ESLint / Prettier
 - [✅] `node_modules` git ignored
-- [ ] No `console.log`s / comments - **Double check this after your final commit :)**
+- [✅] No `console.log`s / comments - **Double check this after your final commit :)**
 - [ ] remove unnecessary files (e.g. App.test.js)
 
 

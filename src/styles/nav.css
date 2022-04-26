@@ -29,11 +29,20 @@
   opacity: 0.6;
   transition: 0.3s;
   font-family: 'Raleway';
-  font-weight: 600;
   margin-top: 16px;
+  margin-left: 5px;
 }
 
 .login_btn {
+  color: #FFFFFF;
+  font-size: 20px;
+  opacity: 0.6;
+  transition: 0.2s;
+  padding-right: 2.2vw;
+  margin-left: 5px;
+}
+
+.sign_up_btn {
   color: #FFFFFF;
   font-size: 20px;
   opacity: 0.6;

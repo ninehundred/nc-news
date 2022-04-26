@@ -1,6 +1,6 @@
 import '../styles/account.css';
 import { ReqLoginAccountPage } from '../wrappers/RequiresLogin';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getUser } from './utils/api';
 import { useLoading } from "../hooks/useLoading";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,7 +11,7 @@ export const Account = () => {
   
   let [userInfo, setUserInfo] = useState({});
   const [edit, setEdit] = useState(false)
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
 
 
   const {isLoading, setIsLoading} = useLoading()
@@ -33,13 +33,14 @@ export const Account = () => {
   useEffect( () => {
     let username = sessionStorage.getItem('username')
     setIsLoading(true);
-    getUser(username)
-    .then( data => {
+    getUser({username: username})
+    .then(data => {
       setUserInfo({...data.user})
       setIsLoading(false);
     })
   }, [setIsLoading])
 
+  if (isLoading) return <section className='loading'>LOADING...</section>
   return (
     <ReqLoginAccountPage>
         <section className='account_section'>

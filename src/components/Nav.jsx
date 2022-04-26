@@ -9,6 +9,7 @@ export const Nav = () => {
       <Link className="navbar_header" to="/">Cnews</Link>
       <Link className='navbar_route home_btn' to="/">home</Link> 
       <ReqLoginNavLoginBtn>
+        <Link id='login_button' className='navbar_route sign_up_btn' to="/signUp">sign up</Link>
         <Link id='login_button' className='navbar_route login_btn' to="/login">login</Link>
       </ReqLoginNavLoginBtn>
     </nav>
