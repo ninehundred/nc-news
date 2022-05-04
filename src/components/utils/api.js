@@ -99,6 +99,20 @@ export const postArticleComment = (article_id, comment) => {
   })
 }
 
+export const patchUserInfo = ( userInfo ) => {
+  console.log('about to patch with the following user info...\n', userInfo)
+
+  // return listApi.post(`/articles/${String(article_id)}/comments`, comment)
+  // .then( ( {data} ) => {
+  //   console.log('success')
+  // })
+  // .catch(err => {
+  //   console.log(err)
+  // })
+}
+
+
+
 export const handleError = (pathname) => {
   return listApi.get(`${pathname}`)
   .then((response) => {
