@@ -23,8 +23,6 @@ export const InputToggle = ({elementName,
     setNewInfo({[elementName]: elementValue});
   }
 
-  console.log(elementName)
-
   const handleLock = (event) => {
     if(edit === false) {
       setEdit(!edit)

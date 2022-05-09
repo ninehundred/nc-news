@@ -30,7 +30,7 @@ export const Account = () => {
           Account
         </h1>
           <img src={userInfo ? userInfo.avatar_url : ''} alt="user avatar"></img>
-        <p>
+        <section>
           <section>
               <InputToggle elementName={'username'} 
                           setUserInfo={setUserInfo} 
@@ -43,7 +43,7 @@ export const Account = () => {
                           userInfoValue={userInfo.name}
                           userInfo={userInfo}/> 
           </section>
-        </p>
+        </section>
         
       </section>
     </ReqLoginAccountPage>
