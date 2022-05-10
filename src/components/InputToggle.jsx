@@ -44,10 +44,10 @@ export const InputToggle = ({elementName,
         <input type="text" 
             id="name" 
             name={elementName}
-            placeholder='new username...'
+            placeholder={`new ${elementName}`}
             onChange={handleChange}></input>
       } 
-      <button onClick={event => handleLock()}>
+      <button onClick={event => handleLock(event)}>
               { !edit ? 
                 <FontAwesomeIcon icon="fa-solid fa-lock" /> : 
                 <FontAwesomeIcon icon="fa-solid fa-lock-open" />}

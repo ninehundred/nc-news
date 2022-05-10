@@ -10,10 +10,10 @@ import { Account } from './components/Account';
 import { NoMatch } from './components/NoMatch';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faLock, faLockOpen} from '@fortawesome/free-solid-svg-icons'
+import { faLock, faLockOpen, faPencil} from '@fortawesome/free-solid-svg-icons'
 import SignUp from './components/SignUp';
 
-library.add(fab, faLock, faLockOpen)
+library.add(fab, faLock, faLockOpen, faPencil)
 
 function App() {
   
