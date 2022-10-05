@@ -64,7 +64,7 @@ export const patchItemVotes = (itemId, itemType, body) => {
   const voteItemOrigin = itemType;  
   return listApi.patch(`/${voteItemOrigin}/${itemId}`, body)
   .catch(err => {
-    console.dir(err)
+    // console.dir(err)
     return err
   })
 }

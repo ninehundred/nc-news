@@ -14,15 +14,12 @@ import { faLock, faLockOpen, faPencil} from '@fortawesome/free-solid-svg-icons'
 import SignUp from './components/SignUp';
 
 library.add(fab, faLock, faLockOpen, faPencil)
-
 function App() {
-  
   const { setUser } = useContext(UserContext);
   useEffect( () => {
     const previousLoggedInUser = sessionStorage.getItem('username')
     if (previousLoggedInUser) setUser(previousLoggedInUser);
   })
-
   return (
     <div className="App">
       <link rel="preconnect" href="https://fonts.googleapis.com"/>
