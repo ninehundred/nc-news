@@ -1,16 +1,16 @@
 import '../styles/account.css';
 import { ReqLoginAccountPage } from '../wrappers/RequiresLogin';
 import { useState, useEffect } from 'react';
-import { getUser, patchUserInfo } from './utils/api';
+import { getUser  } from './utils/api';
 import { useLoading } from "../hooks/useLoading";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { InputToggle } from './InputToggle';
 
 
 export const Account = () => {
   
   let [userInfo, setUserInfo] = useState({});
-  let [editPic, setEditPic] = useState(false)
+  // let [editPic, setEditPic] = useState(false)
   const {isLoading, setIsLoading} = useLoading()
 
   useEffect( () => {
@@ -23,9 +23,9 @@ export const Account = () => {
     })
   }, [setIsLoading])
 
-  const handleEditPic = (event) => {
-    setEditPic(!editPic)
-  }
+  // const handleEditPic = (event) => {
+  //   setEditPic(!editPic)
+  // }
 
   if (isLoading) return <section className='loading'>LOADING...</section>
   return (

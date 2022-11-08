@@ -46,7 +46,7 @@ export const ReqLoginNavLoginBtn = ({ children }) => {
     return (
       <>
       <Link className='navbar_route home_btn' style={{'marginLeft' : '10px'}} to="/account">account</Link>
-      <Link className='navbar_route login_btn' to="/" onClick={(event) => logUserOut(event)}>logout</Link>
+      <Link className='navbar_route logout_btn' to="/" onClick={(event) => logUserOut(event)}>logout</Link>
       </>
     )
   // else return the original login form

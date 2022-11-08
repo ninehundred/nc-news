@@ -40,6 +40,17 @@
   transition: 0.2s;
   padding-right: 2.2vw;
   margin-left: 5px;
+  /* margin-left: auto; */
+}
+
+.logout_btn {
+  color: #FFFFFF;
+  font-size: 20px;
+  opacity: 0.6;
+  transition: 0.2s;
+  padding-right: 2.2vw;
+  margin-left: 5px;
+  margin-left: auto;
 }
 
 .sign_up_btn {

@@ -26,7 +26,7 @@ note - both back and front end are ongoing as I develop more features in each to
 ## running the project
 ### clone repo using
 - git clone https://github.com/ninehundred/nc-news.git
-### ensure CORS package is installed in back end:
+### back end - ensure CORS package is installed:
 - (to allow use of resource can be used on this application)
 - npm install cors 
 - git add package.json package-lock.json app.js
