@@ -1,5 +1,5 @@
 ## DO News App
-This app was demonstrate knowledge of a front end portion of full stack development.
+This app was created to demonstrate knowledge of a front end portion of full stack development.
 It utilises the api of be-nc-news (ADD LINK) to display items on the front end.
 This app will work on both a desktop and mobile application.
 
